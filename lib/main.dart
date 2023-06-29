@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:habit_goal/provider/locale_provider.dart';
 import 'package:habit_goal/screens/login/login.dart';
 import 'package:habit_goal/theme/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +15,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Habit Goal',
-      debugShowCheckedModeBanner: false,
-      theme: mainTheme,
-      home: const LoginScreen(),
-    );
+    return ChangeNotifierProvider(
+        create: (context) => LocaleProvider(),
+        builder: (context, child) {
+          final provider = Provider.of<LocaleProvider>(context);
+          return MaterialApp(
+            title: 'Habit Goal',
+            locale: provider.locale,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate
+            ],
+            supportedLocales: const [
+              Locale('en'),
+              Locale('es'),
+            ],
+            debugShowCheckedModeBanner: false,
+            theme: mainTheme,
+            home: const LoginScreen(),
+          );
+        });
   }
 }
 
