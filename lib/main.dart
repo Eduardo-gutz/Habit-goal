@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:habit_goal/provider/locale_provider.dart';
-import 'package:habit_goal/screens/login/login.dart';
-import 'package:habit_goal/theme/constants.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:habit_goal/src/provider/locale_provider.dart';
+import 'package:habit_goal/src/screens/auth/login/login.dart';
+import 'package:habit_goal/src/screens/auth/signup/signup.dart';
+import 'package:habit_goal/src/theme/constants.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -34,6 +35,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: mainTheme,
             home: const LoginScreen(),
+            routes: <String, WidgetBuilder>{
+              '/login': (BuildContext context) => const LoginScreen(),
+              '/signup': (BuildContext context) => const SignupScreen(),
+            },
           );
         });
   }

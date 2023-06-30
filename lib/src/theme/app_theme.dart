@@ -1,4 +1,4 @@
-import 'package:habit_goal/theme/colors.dart';
+import 'package:habit_goal/src/theme/colors.dart';
 
 class AppTheme {
   static const colors = AppColors();

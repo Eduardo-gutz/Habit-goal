@@ -1,4 +1,4 @@
-import 'package:habit_goal/utils/regex.dart';
+import '../../utils/regex.dart';
 
 mixin ValidationMixin {
   String? requiredField(String? value) {

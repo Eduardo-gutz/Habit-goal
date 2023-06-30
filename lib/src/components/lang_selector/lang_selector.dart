@@ -17,7 +17,7 @@ class _LangSelectorState extends State<LangSelector> {
 
   Color getColor(Set<MaterialState> states) {
     if (states.contains(MaterialState.selected)) {
-      return appColors.accentColor;
+      return appColors.secondaryColor;
     }
     return appColors.accentColor25;
   }
@@ -62,7 +62,7 @@ class _LangSelectorState extends State<LangSelector> {
         ),
         ButtonSegment<String>(value: 'en', label: Text('EN')),
       ],
-      selected: {lang},
+      selected: {provider.locale.languageCode},
       onSelectionChanged: (Set<String> newLang) {
         setState(() {
           lang = newLang.first;

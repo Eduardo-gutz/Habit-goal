@@ -1,0 +1,22 @@
+{
+    "log": "Ingresa a tu cuenta",
+    "noAccount": "¿No tienes cuenta?",
+    "signUp": "Regístrate aquí",
+    "email": "Correo o nombre de usuario",
+    "password": "Contraseña",
+    "login": "Iniciar sesión",
+    "forgotPassword": "Olvide mi contraseña",
+    "loginGoogle": "Iniciar sesión con Google",
+    "loginFacebook": "Iniciar sesión con Facebook",
+    "register": "Regístrate",
+    "signup": "Registrarme",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "loginHere": "Ingresa aqui",
+    "fullName": "Nombre completo",
+    "username": "Nombre de usuario",
+    "emailAddress": "Email",
+    "confirmPassword": "Confirmar contraseña",
+    "signupGoogle": "Regístrate con Google",
+    "signupFacebook": "Regístrate con Facebook"
+    
+}
