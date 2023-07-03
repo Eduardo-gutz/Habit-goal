@@ -40,4 +40,14 @@ mixin ValidationMixin {
       return null;
     };
   }
+
+  String? Function(String?) confirmPassword(String pass) {
+    return (value) {
+      if (value == null) return null;
+      if (value != pass) {
+        return 'Las contraseñas no coinciden';
+      }
+      return null;
+    };
+  }
 }

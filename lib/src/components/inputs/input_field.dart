@@ -8,6 +8,7 @@ class InputField extends StatefulWidget {
     required this.hintText,
     this.keyboardType,
     this.validations,
+    this.controller,
     this.isPassword = false,
   }) : super(key: key);
 
@@ -15,6 +16,7 @@ class InputField extends StatefulWidget {
   final TextInputType? keyboardType;
   final List<String? Function(String)>? validations;
   final bool? isPassword;
+  final TextEditingController? controller;
 
   String? handleValidations(String? value) {
     if (validations == null) {
@@ -39,6 +41,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       obscureText: !_showPassword && widget.isPassword!,
       keyboardType: widget.keyboardType,
       cursorColor: const AppColors().primaryColor,

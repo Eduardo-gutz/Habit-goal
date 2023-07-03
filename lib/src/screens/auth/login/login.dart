@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:habit_goal/src/services/auth.dart';
 
 import '../../../components/button.dart';
 import '../../../components/inputs/input_field.dart';
@@ -15,6 +16,21 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future handleLogin() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      try {
+        final response = await AuthService()
+            .login(_emailController.text, _passwordController.text);
+        print(response);
+      } catch (e) {
+        print(e.toString());
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +44,30 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
         child: ListView(
           children: <Widget>[
             const Align(alignment: Alignment.topRight, child: LangSelector()),
-            const SizedBox(height: 30),
+            const SizedBox(height: 35),
             Center(child: Image.asset('assets/Logo.png', width: 325)),
             const SizedBox(height: 53),
-            Text(i18n.log,
-                textAlign: TextAlign.left,
-                style: Theme.of(context).textTheme.headlineSmall),
-            Row(
-              children: [
-                Text(i18n.noAccount,
-                    style: Theme.of(context).textTheme.labelSmall),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                  child: Text(i18n.signUp),
-                )
-              ],
-            ),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(14.0, 0, 14.0, 0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(i18n.log,
+                          textAlign: TextAlign.left,
+                          style: Theme.of(context).textTheme.headlineSmall),
+                      Row(
+                        children: [
+                          Text(i18n.noAccount,
+                              style: Theme.of(context).textTheme.labelSmall),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/signup');
+                            },
+                            child: Text(i18n.signUp),
+                          )
+                        ],
+                      ),
+                    ])),
             const SizedBox(height: 16),
             Form(
                 key: _formKey,
@@ -53,6 +75,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
                   InputField(
                     hintText: i18n.email,
                     keyboardType: TextInputType.emailAddress,
+                    controller: _emailController,
                     validations: [
                       requiredField,
                     ],
@@ -60,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
                   InputField(
                     hintText: i18n.password,
                     isPassword: true,
+                    controller: _passwordController,
                     validations: [
                       requiredField,
                       minLength(8),
@@ -78,12 +102,7 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
                   Center(
                     child: Button(
                       text: i18n.login,
-                      onPress: () {
-                        if (_formKey.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')));
-                        }
-                      },
+                      onPress: handleLogin,
                     ),
                   )
                 ]))
