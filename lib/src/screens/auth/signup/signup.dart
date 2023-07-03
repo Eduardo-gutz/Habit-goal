@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:habit_goal/src/bloc/auth/auth_bloc.dart';
+import 'package:habit_goal/src/bloc/auth/auth_events.dart';
 import 'package:habit_goal/src/models/auth_models.dart';
 import 'package:habit_goal/src/provider/locale_provider.dart';
 import 'package:habit_goal/src/services/auth.dart';
@@ -37,7 +39,9 @@ class _SignupScreenState extends State<SignupScreen> with ValidationMixin {
     };
   }
 
-  Future handleSignup() async {
+  Future handleSignup(BuildContext context) async {
+    var authState = context.read<AuthBloc>();
+
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
@@ -56,7 +60,12 @@ class _SignupScreenState extends State<SignupScreen> with ValidationMixin {
       try {
         final response =
             await AuthService().singupWithPass(newUser, currentLang);
-        print(response);
+
+        authState.add(SetAuthState(isAuth: true, userAuth: response));
+
+        if (context.mounted) {
+          Navigator.pushNamed(context, '/home');
+        }
       } catch (e) {
         print(e.toString());
       }
@@ -149,7 +158,9 @@ class _SignupScreenState extends State<SignupScreen> with ValidationMixin {
                   Center(
                     child: Button(
                       text: i18n.signup,
-                      onPress: handleSignup,
+                      onPress: () {
+                        handleSignup(context);
+                      },
                     ),
                   )
                 ]))

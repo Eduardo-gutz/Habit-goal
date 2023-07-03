@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:habit_goal/src/bloc/auth/auth_bloc.dart';
+import 'package:habit_goal/src/bloc/auth/auth_events.dart';
 import 'package:habit_goal/src/services/auth.dart';
 
 import '../../../components/button.dart';
@@ -19,13 +22,20 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future handleLogin() async {
+  Future handleLogin(BuildContext context) async {
+    var authState = context.read<AuthBloc>();
+
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       try {
         final response = await AuthService()
             .login(_emailController.text, _passwordController.text);
-        print(response);
+
+        authState.add(SetAuthState(isAuth: true, userAuth: response));
+
+        if (context.mounted) {
+          Navigator.pushNamed(context, '/home');
+        }
       } catch (e) {
         print(e.toString());
       }
@@ -102,7 +112,9 @@ class _LoginScreenState extends State<LoginScreen> with ValidationMixin {
                   Center(
                     child: Button(
                       text: i18n.login,
-                      onPress: handleLogin,
+                      onPress: () {
+                        handleLogin(context);
+                      },
                     ),
                   )
                 ]))

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:habit_goal/src/bloc/hg_bloc.dart';
+import 'package:habit_goal/src/components/auth/auth_guard.dart';
 import 'package:habit_goal/src/provider/locale_provider.dart';
 import 'package:habit_goal/src/screens/auth/login/login.dart';
 import 'package:habit_goal/src/screens/auth/signup/signup.dart';
+import 'package:habit_goal/src/screens/home/home.dart';
 import 'package:habit_goal/src/theme/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -20,25 +23,30 @@ class MyApp extends StatelessWidget {
         create: (context) => LocaleProvider(),
         builder: (context, child) {
           final provider = Provider.of<LocaleProvider>(context);
-          return MaterialApp(
-            title: 'Habit Goal',
-            locale: provider.locale,
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate
-            ],
-            supportedLocales: const [
-              Locale('en'),
-              Locale('es'),
-            ],
-            debugShowCheckedModeBanner: false,
-            theme: mainTheme,
-            home: const LoginScreen(),
-            routes: <String, WidgetBuilder>{
-              '/login': (BuildContext context) => const LoginScreen(),
-              '/signup': (BuildContext context) => const SignupScreen(),
-            },
+          return HGBlocsProvider(
+            child: MaterialApp(
+              title: 'Habit Goal',
+              locale: provider.locale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate
+              ],
+              supportedLocales: const [
+                Locale('en'),
+                Locale('es'),
+              ],
+              debugShowCheckedModeBanner: false,
+              theme: mainTheme,
+              home: const LoginScreen(),
+              routes: <String, WidgetBuilder>{
+                '/login': (BuildContext context) => const LoginScreen(),
+                '/signup': (BuildContext context) => const SignupScreen(),
+                '/home': (BuildContext context) => const AuthGuard(
+                      child: HomeScreen(),
+                    ),
+              },
+            ),
           );
         });
   }
