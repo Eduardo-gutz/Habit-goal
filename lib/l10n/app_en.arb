@@ -74,5 +74,84 @@
     "signupFacebook": "Sign up with Facebook",
     "@signupFacebook": {
         "description": "Sign up with Facebook"
+    },
+    "createHabit": "Create habit",
+    "@createHabit": {
+        "description": "Create habit"
+    },
+    "habitTitle": "Habit title",
+    "@habitTitle": {
+        "description": "Habit title"
+    },
+    "habitDescription": "Habit description",
+    "@habitDescription": {
+        "description": "Habit description"
+    },
+    "habitCategory": "Category",
+    "@habitCategory": {
+        "description": "Habit category"
+    },
+    "startDate": "Start date",
+    "@startDate": {
+        "description": "Start date"
+    },
+    "endDate": "End date",
+    "@endDate": {
+        "description": "End date"
+    },
+    "hours": "Hours",
+    "@hours": {
+        "description": "hours"
+    },
+    "notify": "Reminder",
+    "@notify": {
+        "description": "reminder"
+    },
+    "record": "Time registration",
+    "@record": {
+        "description": "Time registration"
+    },
+    "action": "Action",
+    "@action": {
+        "description": "Action"
+    },
+    "frequency": "Frequency",
+    "@frequency": {
+        "description": "Frequency"
+    },
+    "accept": "Accept",
+    "@accept": {
+        "description": "Accept"
+    },
+    "save": "Save",
+    "@save": {
+        "description": "Save"
+    },
+    "cancel": "Cancel",
+    "@cancel": {
+        "description": "Cancel"
+    },
+    "dontShowAgain": "Don't show again",
+    "@dontShowAgain": {
+        "description": "Don't show again"
+    },
+    "notifications": "Notifications",
+    "@notifications": {
+        "description": "Notifications"
+    },
+    "minutesBefore": "{minutes} minutes before",
+    "@minutesBefore": {
+        "description": "minutes before",
+        "placeholders": {
+            "minutes": {}
+        }
+    },
+    "custom": "Custom",
+    "@custom": {
+        "description": "Custom"
+    },
+    "recordDescription": "This will activate a timer when you start your habit and you will have to deactivate it in the Timer section, this is to keep track of the time you dedicate to the fulfillment of this habit.",
+    "@recordDescription": {
+        "description": "Record time description"
     }
 }

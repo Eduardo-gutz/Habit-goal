@@ -17,6 +17,24 @@
     "emailAddress": "Email",
     "confirmPassword": "Confirmar contraseña",
     "signupGoogle": "Regístrate con Google",
-    "signupFacebook": "Regístrate con Facebook"
-    
+    "signupFacebook": "Regístrate con Facebook",
+    "createHabit": "Crear habito",
+    "habitTitle": "Titulo del habito",
+    "habitDescription": "Descripción del habito",
+    "habitCategory": "Categoría",
+    "startDate": "Fecha de inicio",
+    "endDate": "Fecha de finalización",
+    "hours": "Hora",
+    "notify": "Recordatorio",
+    "record": "Registro de tiempo",
+    "action": "Acción",
+    "frequency": "Frecuencia",
+    "accept": "Aceptar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "dontShowAgain": "No mostrar de nuevo",
+    "notifications": "Notificaciones",
+    "minutesBefore": "{minutes} minutos antes",
+    "custom": "Personalizado",
+    "recordDescription": "Esto activara un cronometro cuanto comienzastu habito y tendras que desactivarlo en la seccion de Cronometro, esto sirve para llevar un control del tiempo que dedicas al cumplimiento de este habito"
 }

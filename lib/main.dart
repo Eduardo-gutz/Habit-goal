@@ -6,8 +6,9 @@ import 'package:habit_goal/src/components/auth/auth_guard.dart';
 import 'package:habit_goal/src/provider/locale_provider.dart';
 import 'package:habit_goal/src/screens/auth/login/login.dart';
 import 'package:habit_goal/src/screens/auth/signup/signup.dart';
+import 'package:habit_goal/src/screens/habits/new_habit/new_habit.dart';
 import 'package:habit_goal/src/screens/home/home.dart';
-import 'package:habit_goal/src/theme/constants.dart';
+import 'package:habit_goal/src/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
                 '/signup': (BuildContext context) => const SignupScreen(),
                 '/home': (BuildContext context) => const AuthGuard(
                       child: HomeScreen(),
+                    ),
+                '/newHabit': (BuildContext context) => const AuthGuard(
+                      child: NewHabitScreen(),
                     ),
               },
             ),

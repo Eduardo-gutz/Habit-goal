@@ -10,6 +10,7 @@ class InputField extends StatefulWidget {
     this.validations,
     this.controller,
     this.isPassword = false,
+    this.minLines = 1,
   }) : super(key: key);
 
   final String hintText;
@@ -17,6 +18,7 @@ class InputField extends StatefulWidget {
   final List<String? Function(String)>? validations;
   final bool? isPassword;
   final TextEditingController? controller;
+  final int? minLines;
 
   String? handleValidations(String? value) {
     if (validations == null) {
@@ -41,6 +43,8 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      minLines: widget.minLines,
+      maxLines: widget.minLines,
       controller: widget.controller,
       obscureText: !_showPassword && widget.isPassword!,
       keyboardType: widget.keyboardType,

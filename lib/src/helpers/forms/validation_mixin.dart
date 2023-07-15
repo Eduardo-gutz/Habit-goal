@@ -2,7 +2,6 @@ import '../../utils/regex.dart';
 
 mixin ValidationMixin {
   String? requiredField(String? value) {
-    print('value: $value');
     if (value == null || value == '') return 'Este campo es requerido';
     return null;
   }
