@@ -6,6 +6,7 @@
     "password": "Contraseña",
     "login": "Iniciar sesión",
     "forgotPassword": "Olvide mi contraseña",
+    "loginAsAnonymous": "Usar como invitado",
     "loginGoogle": "Iniciar sesión con Google",
     "loginFacebook": "Iniciar sesión con Facebook",
     "register": "Regístrate",
@@ -36,5 +37,6 @@
     "notifications": "Notificaciones",
     "minutesBefore": "{minutes} minutos antes",
     "custom": "Personalizado",
-    "recordDescription": "Esto activara un cronometro cuanto comienzastu habito y tendras que desactivarlo en la seccion de Cronometro, esto sirve para llevar un control del tiempo que dedicas al cumplimiento de este habito"
+    "recordDescription": "Esto activara un cronometro cuanto comienzastu habito y tendras que desactivarlo en la seccion de Cronometro, esto sirve para llevar un control del tiempo que dedicas al cumplimiento de este habito",
+    "frequencyValues": "{frequency, select, D{daily} DD{Every 2 days} DDD{Every 3 days} W{Weekly} WW{Every 2 weeks} M{Monthly} S{Sporadic} U{Unique} C{Custom} other{}}"
 }

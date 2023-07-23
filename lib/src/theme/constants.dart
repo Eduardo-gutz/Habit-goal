@@ -24,22 +24,26 @@ final TextButtonThemeData textButtonTheme = TextButtonThemeData(
 );
 
 final TextTheme textTheme = TextTheme(
-  labelSmall: TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
-    color: appColors.black,
-  ),
-  headlineSmall: TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: appColors.primaryColor,
-  ),
-  bodyLarge: TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: appColors.black,
-  ),
-);
+    labelSmall: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: appColors.black,
+    ),
+    headlineSmall: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: appColors.primaryColor,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: appColors.black,
+    ),
+    displaySmall: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: appColors.white,
+    ));
 
 final FloatingActionButtonThemeData floatingActionButtonTheme =
     FloatingActionButtonThemeData(

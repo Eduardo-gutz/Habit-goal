@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:habit_goal/src/components/button.dart';
 import 'package:habit_goal/src/components/calendar/calendar.dart';
-import 'package:habit_goal/src/components/inputs/date_picker.dart';
+import 'package:habit_goal/src/components/inputs/master_value_date.dart';
 import 'package:habit_goal/src/components/inputs/master_value_field.dart';
 import 'package:habit_goal/src/components/inputs/input_field.dart';
+import 'package:habit_goal/src/components/inputs/master_value_freq.dart';
 import 'package:habit_goal/src/controllers/fields_controller.dart';
 import 'package:habit_goal/src/helpers/forms/validation_mixin.dart';
 import 'package:habit_goal/src/theme/colors.dart';
@@ -22,6 +23,8 @@ class _NewHabitScreen extends State<NewHabitScreen> with ValidationMixin {
       MasterValueController<DateTime>();
   final MasterValueController<DateTime> _endDateController =
       MasterValueController<DateTime>();
+  final MasterValueController<String> _frequencyController =
+      MasterValueController<String>();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late final RestorableRouteFuture<DateTime?>? restorableDate = null;
@@ -83,7 +86,10 @@ class _NewHabitScreen extends State<NewHabitScreen> with ValidationMixin {
                             icon: Icons.calendar_today_rounded,
                             controller: _endDateController,
                           ),
-                          Calendar(),
+                          MasterValueFrequency(
+                            controller: _frequencyController,
+                            label: i18n.frequency,
+                          ),
                           // MasterValueField<String>(
                           //   label: i18n.frequency,
                           //   hintText: 'Todos los días',

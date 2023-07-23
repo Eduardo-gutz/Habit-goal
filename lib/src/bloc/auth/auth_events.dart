@@ -11,9 +11,11 @@ class AuthCheck extends AuthEvent {
 class SetAuthState extends AuthEvent {
   final UserAuth? userAuth;
   final bool isAuth;
+  final bool? isAnonymous;
 
   const SetAuthState({
     this.userAuth,
     required this.isAuth,
+    this.isAnonymous = false,
   });
 }

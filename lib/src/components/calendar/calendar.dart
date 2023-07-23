@@ -25,8 +25,15 @@ class Calendar extends StatefulWidget {
 }
 
 class _CalendarState extends State<Calendar> {
+  List<MarkDay>? marks;
   final _appColors = const AppColors();
   late DateTime _date = DateTime.now();
+
+  @override
+  void initState() {
+    marks = widget.marks;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

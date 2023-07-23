@@ -7,6 +7,7 @@ class AppColors {
   final accentColor25 = const Color(0xFFD1DBE2);
   final white = const Color(0xFFF7F7F7);
   final black = const Color(0xFF444444);
+  final success = const Color(0xFF27AE60);
 
   const AppColors();
 }

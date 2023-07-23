@@ -27,6 +27,10 @@
     "@forgotPassword": {
         "description": "Forgot password?"
     },
+    "loginAsAnonymous": "Use as invited user",
+    "@loginAsAnonymous": {
+        "description": "Use as invited user"
+    },
     "loginGoogle": "Log in with Google",
     "@loginGoogle": {
         "description": "Log in with Google"
@@ -153,5 +157,14 @@
     "recordDescription": "This will activate a timer when you start your habit and you will have to deactivate it in the Timer section, this is to keep track of the time you dedicate to the fulfillment of this habit.",
     "@recordDescription": {
         "description": "Record time description"
+    },
+    "frequencyValues": "{frequency, select, D{Daily} DD{Every 2 days} DDD{Every 3 days} W{Weekly} WW{Every 2 weeks} M{Monthly} S{Sporadic} U{Unique} C{Custom} other{}}",
+    "@frequencyValues": {
+        "description": "values to frequency",
+        "placeholders": {
+            "frequency": {
+            "type": "String"
+            }
+        }
     }
 }
