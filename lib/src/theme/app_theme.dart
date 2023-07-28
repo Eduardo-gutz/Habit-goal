@@ -12,4 +12,5 @@ ThemeData mainTheme = ThemeData(
   textTheme: textTheme,
   floatingActionButtonTheme: floatingActionButtonTheme,
   elevatedButtonTheme: elevatedButtonThemeData,
+  timePickerTheme: timePikerThemeData,
 );

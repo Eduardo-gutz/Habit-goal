@@ -75,3 +75,35 @@ final ElevatedButtonThemeData elevatedButtonThemeData = ElevatedButtonThemeData(
     backgroundColor: MaterialStateProperty.all<Color>(appColors.secondaryColor),
   ),
 );
+
+final TimePickerThemeData timePikerThemeData = TimePickerThemeData(
+  backgroundColor: appColors.accentColor,
+  dayPeriodColor: MaterialStateColor.resolveWith((states) {
+    if (states.contains(MaterialState.selected)) {
+      return appColors.secondaryColor;
+    }
+    return appColors.accentColor25;
+  }),
+  dayPeriodTextColor: appColors.black,
+  dialBackgroundColor: appColors.accentColor25,
+  dialTextColor: MaterialStateColor.resolveWith((states) {
+    if (states.contains(MaterialState.selected)) {
+      return appColors.white;
+    }
+    return appColors.black;
+  }),
+  dialHandColor: appColors.secondaryColor,
+  hourMinuteTextColor: appColors.black,
+  hourMinuteColor: MaterialStateColor.resolveWith((states) {
+    if (states.contains(MaterialState.selected)) {
+      return appColors.white;
+    }
+    return appColors.accentColor25;
+  }),
+  shape: ShapeBorder.lerp(
+    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    1,
+  ),
+  entryModeIconColor: appColors.accentColor25,
+);

@@ -37,6 +37,6 @@
     "notifications": "Notificaciones",
     "minutesBefore": "{minutes} minutos antes",
     "custom": "Personalizado",
-    "recordDescription": "Esto activara un cronometro cuanto comienzastu habito y tendras que desactivarlo en la seccion de Cronometro, esto sirve para llevar un control del tiempo que dedicas al cumplimiento de este habito",
-    "frequencyValues": "{frequency, select, D{daily} DD{Every 2 days} DDD{Every 3 days} W{Weekly} WW{Every 2 weeks} M{Monthly} S{Sporadic} U{Unique} C{Custom} other{}}"
+    "recordDescription": "Esto activara un cronometro cuanto comienzas tu habito y tendrás que desactivarlo en la sección de Cronometro, esto sirve para llevar un control del tiempo que dedicas al cumplimiento de este habito",
+    "frequencyValues": "{frequency, select, D{Diario} DD{Cada 2 días} DDD{Cada 3 días} W{Semanalmente} WW{Cada 2 semanas} M{Mensualmente} S{Esporádico} U{Único} C{Personalizado} other{}}"
 }

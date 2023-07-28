@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 import 'package:habit_goal/src/components/button.dart';
-import 'package:habit_goal/src/components/calendar/calendar.dart';
-import 'package:habit_goal/src/components/inputs/master_value_date.dart';
-import 'package:habit_goal/src/components/inputs/master_value_field.dart';
+import 'package:habit_goal/src/components/master_value/master_value_bool.dart';
+import 'package:habit_goal/src/components/master_value/master_value_date.dart';
 import 'package:habit_goal/src/components/inputs/input_field.dart';
-import 'package:habit_goal/src/components/inputs/master_value_freq.dart';
+import 'package:habit_goal/src/components/master_value/master_value_freq.dart';
+import 'package:habit_goal/src/components/master_value/master_value_hour.dart';
 import 'package:habit_goal/src/controllers/fields_controller.dart';
 import 'package:habit_goal/src/helpers/forms/validation_mixin.dart';
-import 'package:habit_goal/src/theme/colors.dart';
 
 class NewHabitScreen extends StatefulWidget {
   const NewHabitScreen({Key? key}) : super(key: key);
@@ -18,14 +18,13 @@ class NewHabitScreen extends StatefulWidget {
 }
 
 class _NewHabitScreen extends State<NewHabitScreen> with ValidationMixin {
-  final TextEditingController _emailController = TextEditingController();
-  final MasterValueController<DateTime> _startDateController =
-      MasterValueController<DateTime>();
-  final MasterValueController<DateTime> _endDateController =
-      MasterValueController<DateTime>();
-  final MasterValueController<String> _frequencyController =
-      MasterValueController<String>();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _startDateController = MasterValueController<DateTime>();
+  final _endDateController = MasterValueController<DateTime>();
+  final _frequencyController = MasterValueController<String>();
+  final _timeController = MasterValueController<TimeOfDay>();
+  final _notifyController = MasterValueController<bool>();
+  final _formKey = GlobalKey<FormState>();
 
   late final RestorableRouteFuture<DateTime?>? restorableDate = null;
 
@@ -78,96 +77,24 @@ class _NewHabitScreen extends State<NewHabitScreen> with ValidationMixin {
                         children: [
                           MasterValueDate(
                             label: i18n.startDate,
-                            icon: Icons.calendar_today_rounded,
+                            icon: TablerIcons.calendar_star,
                             controller: _startDateController,
                           ),
                           MasterValueDate(
                             label: i18n.endDate,
-                            icon: Icons.calendar_today_rounded,
+                            icon: TablerIcons.calendar_check,
                             controller: _endDateController,
                           ),
                           MasterValueFrequency(
                             controller: _frequencyController,
-                            label: i18n.frequency,
                           ),
-                          // MasterValueField<String>(
-                          //   label: i18n.frequency,
-                          //   hintText: 'Todos los días',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
-                          // MasterValueField<String>(
-                          //   label: i18n.hours,
-                          //   hintText: '--:-- hrs',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
-                          // MasterValueField<String>(
-                          //   label: i18n.notify,
-                          //   hintText: 'DD/MM/YYYY',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
-                          // MasterValueField<String>(
-                          //   label: i18n.record,
-                          //   hintText: 'DD/MM/YYYY',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
-                          // MasterValueField<String>(
-                          //   label: i18n.habitCategory,
-                          //   hintText: 'DD/MM/YYYY',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
-                          // MasterValueField<String>(
-                          //   label: i18n.action,
-                          //   hintText: 'Ninguna',
-                          //   icon: Icon(
-                          //     Icons.calendar_today_rounded,
-                          //     color: const AppColors().accentColor,
-                          //     size: 24,
-                          //   ),
-                          //   controller: _startDateController,
-                          //   onTap: () {
-                          //     _startDateController.setValue(null);
-                          //   },
-                          // ),
+                          MasterValueHour(
+                            controller: _timeController,
+                          ),
+                          MasterValueBoolean(
+                            controller: _notifyController,
+                            label: i18n.notify,
+                          ),
                           Center(
                             child: Button(
                               text: i18n.save,
